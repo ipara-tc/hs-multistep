@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./styles/samples.page.css" rel="stylesheet">
+    <title>HubSpot multistep form - Request a sample</title>
+  </head>
+  <body>
+    <div class="hero">
+      <div class="container">
+        <div class="hero-caption-content">
+          <h1 class="hero-title">Want to take a closer look?</h1>
+          <p>You got it. We'll send you sample pouches at no charge so you can test them out for yourself.</p>
+        </div>
+        <div class="hero-caption-form">
+          <div class="ph-form-container">
+            <!-- HS Lead Gen Form -->
+            <div class="ph-form ph-sample-form">
+              <!--[if lte IE 8]>
+              <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+              <![endif]-->
+              <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+              <script>
+                hbspt.forms.create({
+                region: "na1",
+                portalId: "6858527",
+                formId: "b6081e88-1b6a-40e8-928c-95ada16491f1",
+                onFormReady: function($form){
+                  /* Create a next button */
+                  var nextButton = document.createElement("button");
+                  var nextButtonText = document.createTextNode("Next Step");
+                         
+                  /* Next Button */
+                  nextButton.appendChild(nextButtonText);
+                  nextButton.setAttribute("type", "button");
+                  nextButton.setAttribute("id", "nextBtn");
+                  nextButton.setAttribute("onclick", "showNext()");
+                  nextButton.setAttribute("class", "btn btn-primary btn-primary--custom");
+                 
+                  // Append the Next Button to the form
+                  var submitWrapper = document.getElementById("hsForm_b6081e88-1b6a-40e8-928c-95ada16491f1").getElementsByClassName("actions")[0];
+                  submitWrapper.appendChild(nextButton);
+  
+                  /* Display 4 items by default */
+                  var defaultItems = 4;
+                  showTab(defaultItems);
+  
+                  /* Show tab function to display the hidden items */
+                  function showTab(n) {
+                    var x = document.getElementById("hsForm_b6081e88-1b6a-40e8-928c-95ada16491f1").getElementsByClassName("hs-form-field");
+                    for(var i = 0; i < n; i++) {
+                      x[i].style.display = "block";
+                    }
+                  }
+  
+                  // Submit Button
+                  var submitButton = document.getElementById("hsForm_b6081e88-1b6a-40e8-928c-95ada16491f1").getElementsByClassName("hs-button")[0];
+                  submitButton.setAttribute("onclick", "showNext()");
+                  submitButton.classList.add("is-hidden");
+  
+                  var inputFields = document.getElementById("hsForm_b6081e88-1b6a-40e8-928c-95ada16491f1").getElementsByClassName("hs-input");
+                  for(var i = 0; i < inputFields.length; i++) {
+                    inputFields[i].setAttribute("onclick", "resetInput()");
+                  }
+                }
+                });
+              </script>
+              <img class="hs-logo" src="./assets/images/hubspot.png" alt="HubSpot Logo" />
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>               
+    <!-- JQuery for HS Callback functions -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./scripts/lead-gen-form.js"></script>
+  </body>
+</html>
